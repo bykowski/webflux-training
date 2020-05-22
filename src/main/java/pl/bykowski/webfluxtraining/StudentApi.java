@@ -26,12 +26,15 @@ public class StudentApi {
 
     @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Student> get() {
-        return studentFlux.delayElements(Duration.ofSeconds(3));
+
+        return studentFlux.delayElements(Duration.ofSeconds(1));
+
     }
 
     @PostMapping
     public Flux<Student> post(@RequestBody Student student) {
-        Flux<Student> studentFlux = this.studentFlux.mergeWith(Mono.just(student));
+        studentFlux = this.studentFlux.mergeWith(Mono.just(student));
+        studentFlux.subscribe(element -> logger.info(element.toString()));
         return studentFlux;
     }
 }

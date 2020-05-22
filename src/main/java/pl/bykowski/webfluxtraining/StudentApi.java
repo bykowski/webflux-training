@@ -26,9 +26,7 @@ public class StudentApi {
 
     @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Student> get() {
-
         return studentFlux.delayElements(Duration.ofSeconds(1));
-
     }
 
     @PostMapping

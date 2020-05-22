@@ -23,12 +23,11 @@ public class StudentClient {
         studentFlux.subscribe(element -> logger.info(element.toString()));
     }
 
-    @EventListener(ApplicationReadyEvent.class)
     public void createStudent() {
         Flux<Student> studentFlux = WebClient.create()
                 .post()
-                .uri("http://localhost:8080")
-                .body(Mono.just(new Student("Jacek", "Karolak")), Student.class)
+                .uri("https://webflux-training.herokuapp.com")
+                .body(Mono.just(new Student("Karolina", "Karolak")), Student.class)
                 .retrieve()
                 .bodyToFlux(Student.class);
         studentFlux.subscribe(element -> logger.info(element.toString()));

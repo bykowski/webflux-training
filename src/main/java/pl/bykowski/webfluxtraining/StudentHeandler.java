@@ -1,6 +1,5 @@
 package pl.bykowski.webfluxtraining;
 
-import com.sun.xml.internal.ws.encoding.ContentType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

@@ -2,6 +2,7 @@ package pl.bykowski.webfluxtraining;
 
 public class Student {
 
+    private String id;
     private String name;
     private String surname;
 
@@ -17,6 +18,14 @@ public class Student {
         return name;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -29,10 +38,12 @@ public class Student {
         this.surname = surname;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';
     }

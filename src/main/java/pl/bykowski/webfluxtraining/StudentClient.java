@@ -23,6 +23,7 @@ public class StudentClient {
         studentFlux.subscribe(element -> logger.info(element.toString()));
     }
 
+    @EventListener(ApplicationReadyEvent.class)
     public void createStudent() {
         Flux<Student> studentFlux = WebClient.create()
                 .post()

@@ -29,8 +29,9 @@ public class StudentApi {
         return studentFlux.delayElements(Duration.ofSeconds(3));
     }
 
-    @PostMapping()
+    @PostMapping
     public Flux<Student> post(@RequestBody Student student) {
-        return studentFlux.mergeWith(Mono.just(student));
+        Flux<Student> studentFlux = this.studentFlux.mergeWith(Mono.just(student));
+        return studentFlux;
     }
 }
